@@ -1,0 +1,5 @@
+board:
+  name: key30x2            # ビルド時に指定するボード名
+  vendor: zmk                      # ベンダー名（任意）
+  socs:
+    - name: nrf52840_qiaa          # 使用しているSoC名
