@@ -1,0 +1,5 @@
+config SHIELD_KEY30X2_R
+    def_bool $(shields_list_contains,key30x2_r)
+
+config SHIELD_KEY30X2_L
+    def_bool $(shields_list_contains,key30x2_l)

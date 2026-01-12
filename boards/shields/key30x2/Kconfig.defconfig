@@ -1,0 +1,16 @@
+if SHIELD_KEY30X2_L
+
+config ZMK_KEYBOARD_NAME
+    default "key30x2"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_KEY30X2_R || SHIELD_KEY30X2_L
+
+config ZMK_SPLIT
+    default y
+
+endif
