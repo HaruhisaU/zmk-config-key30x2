@@ -16,11 +16,10 @@
 #     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
 #     artifact-name: corne_left_with_logging
 #
----
 include:
   - board: xiao_ble
-    shield: key30x2_r rgbled_adapter
+    shield: key30x2_left
   - board: xiao_ble
-    shield: key30x2_l rgbled_adapter
+    shield: key30x2_right
   - board: xiao_ble
     shield: settings_reset
