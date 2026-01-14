@@ -9,3 +9,4 @@ url: https://github.com/HaruhisaU/zmk-config-key30x2.git
 requires: [xiao_ble]
 features:
   - keys
+layout: key30x2.json

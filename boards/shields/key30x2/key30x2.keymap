@@ -2,18 +2,45 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+/* レイヤーの定義 */
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
+        /* Layer 0: デフォルト (アルファベット) */
         default_layer {
             bindings = <
-/* 左手 6列                                  右手 6列 */
 &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y         &kp U      &kp I      &kp O      &kp P      &kp LBKT   &kp RBKT
 &kp A      &kp S      &kp D      &kp F      &kp G      &kp H         &kp J      &kp K      &kp L      &kp SEMI   &kp SQT    &kp RET
 &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N         &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp UP     &kp RSHIFT
-&kp LCTRL  &kp LALT   &kp LGUI   &kp SPACE  &kp ESC    &kp TAB       &kp BSPC   &kp RET    &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
+&kp LCTRL  &kp LALT   &kp LGUI   &kp SPACE  &mo LOWER  &kp TAB       &kp BSPC   &mo RAISE  &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
 &none      &none      &none      &none      &none      &none         &none      &none      &none      &none      &none      &none
+            >;
+        };
+
+        /* Layer 1: Lower (数字・記号) */
+        lower_layer {
+            bindings = <
+&kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6        &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS  &kp EQUAL
+&kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6        &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
+&trans     &trans     &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &kp PG_UP  &trans
+&trans     &trans     &trans     &trans     &trans     &trans        &trans     &trans     &kp HOME   &kp PG_DN  &kp END    &trans
+&none      &none      &none      &none      &none      &none         &none      &none      &none      &none      &none      &none
+            >;
+        };
+
+        /* Layer 2: Raise (Bluetooth設定・特殊機能) */
+        raise_layer {
+            bindings = <
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans     &trans     &trans     &trans     &trans     &trans
+&trans     &trans       &trans       &trans       &trans       &trans          &trans     &trans     &trans     &trans     &trans     &trans
+&trans     &trans       &trans       &trans       &trans       &trans          &trans     &trans     &trans     &trans     &trans     &trans
+&bootloader &sys_reset  &trans       &trans       &trans       &trans          &trans     &trans     &trans     &trans     &trans     &trans
+&none      &none        &none        &none        &none        &none           &none      &none      &none      &none      &none      &none
             >;
         };
     };
